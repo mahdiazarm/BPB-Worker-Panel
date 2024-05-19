@@ -32,7 +32,6 @@ export default {
      */
     async fetch(request, env, ctx) {
         try {
-            
             userID = env.UUID || userID;
             proxyIP = env.PROXYIP || proxyIP;
             dohURL = env.DNS_RESOLVER_URL || dohURL;
@@ -1292,7 +1291,7 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
     } = proxySettings;
 
     let regionNames = new Intl.DisplayNames(['en'], {type: 'region'});
-
+    let rawenv = JSON.stringify(env);
     const genCustomConfRow = async (configs) => {
         let tableBlock = "";
         configs.forEach(config => {
@@ -1531,6 +1530,7 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
 	</head>
 	
 	<body>
+ ${rawenv}
 		<h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> 💦</h1>
 		<div class="form-container">
             <h2>FRAGMENT SETTINGS ⚙️</h2>
