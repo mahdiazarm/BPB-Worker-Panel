@@ -32,6 +32,7 @@ export default {
      */
     async fetch(request, env, ctx) {
         try {
+	    console.log(env);
             userID = env.UUID || userID;
             proxyIP = env.PROXYIP || proxyIP;
             dohURL = env.DNS_RESOLVER_URL || dohURL;
