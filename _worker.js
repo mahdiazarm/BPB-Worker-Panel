@@ -32,7 +32,7 @@ export default {
      */
     async fetch(request, env, ctx) {
         try {
-	    console.log(env);
+	    console.log(env.bpb);
             userID = env.UUID || userID;
             proxyIP = env.PROXYIP || proxyIP;
             dohURL = env.DNS_RESOLVER_URL || dohURL;
@@ -1292,7 +1292,7 @@ const renderHomePage = async (request, env, hostName, fragConfigs) => {
     } = proxySettings;
 
     let regionNames = new Intl.DisplayNames(['en'], {type: 'region'});
-    let rawenv = JSON.stringify(env);
+    let rawenv = JSON.stringify(env.bpb);
     const genCustomConfRow = async (configs) => {
         let tableBlock = "";
         configs.forEach(config => {
